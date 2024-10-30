@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Special</title>
+
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
+        *{
+            padding: 0;
+            margin:0;
+            font-family: "Space Grotesk", sans-serif;
+            /* border: solid red 2px; */
+        }
+        a{
+            text-decoration: none;
+            color: rgb(226, 43, 43);
+            font-weight: 900;
+        }
+        p{
+            text-align: center;
+        }
+        body{
+            background-color: rgb(160, 173, 173);
+            height: 100vh;
+           
+        }
+        section,#surprise{
+            background-color: rgb(160, 173, 173);
+            width: 100%;
+            height:95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #container{
+            position: relative;
+        }
+
+        .cracker-thread{
+            left: 4%;
+    width: 130%;
+    height: 5px;
+    background-color: #7c7c7c;
+    position: absolute;
+    top: 50%;
+}
+.cracker-thread-top{
+    height: 5px;
+    background-color: #7c7c7c;
+    position: absolute;
+    top: 50%;
+    width: 15px;
+    right: -35%;
+    border-radius: 0 5px 5px 0;
+        }
+        .cracker,.cracker-bottom{
+            display: flex;
+        }
+        .cracker-bottom{
+            margin-top:10px;
+            transform: rotateX(180deg);
+        }
+        .bijili-cont{
+            position: relative;
+            margin: 4px;
+        }
+        .bijili{
+            height: 50px;
+    width: 10px;
+    display: block;
+    background-color: red;
+    transform: rotate(347deg);
+    border-radius: 2px;
+        }
+        
+        .bijili-thread{
+            position: absolute;
+    width: 2px;
+    height: 10px;
+    background-color: black;
+    transform: rotate(347deg);
+    left: 110%;
+        }
+
+
+
+        .thread-cont{
+            /* position: relative; */
+        }
+        .cracker-thread.burn{
+            width: 95%;
+            transition:10s linear;
+            /* border-radius: 0 40px 40px 0; */
+        }
+
+        /* background-color: yellow; */
+
+
+        .cracker-thread-top.burn{
+            /* background-color: yellow; */
+            background: rgb(255,172,4);
+background: linear-gradient(204deg, rgba(255,172,4,1) 16%, rgba(255,4,4,1) 100%);
+            right: -2%;
+            /* border-radius: 0 40% 40% 0; */
+            transition: right 10s linear;
+        }
+        .sparkles{
+            /* position: absolute; */
+            height: 1px;
+            display: none;
+            /* width: 100%; */
+            background: red;
+            /* margin:10px; */
+            transform: rotate(245deg) translateX(-130%) translateY(5px);
+        }
+        .sparkles:nth-child(2){
+            transform: rotate(145deg) translateX(100%) translateY(-5px);
+        }
+        .sparkles:nth-child(3){
+            transform: rotate(145deg) translateX(-170%) translateY(-5px);
+        }
+        .sparkles:nth-child(4){
+            transform: rotate(245deg) translateX(130%);
+        }
+        
+        .sparkles:nth-child(1).burn{
+            display: block;
+            animation: burning 0.5s infinite  ;
+        }
+        .sparkles:nth-child(2).burn{
+            display: block;
+            animation: burning2 0.5s infinite  ;
+        }
+        /* .sparkles:nth-child(3).burn{
+            display: block;
+            animation: burning3 0.5s infinite  ;
+            animation-delay: 0.1s;
+        } */
+
+        .hide{
+            display:none;
+        }
+
+        button{
+            padding:10px 15px;
+            border:none;
+            width: 130px;
+            font-weight: 800;
+            border-radius: 7px;
+            background-color:blanchedalmond
+        }
+        button:hover{
+
+            background-color:rgba(255, 235, 205, 0.504);
+            border:solid white 2px;
+            transition: all 0.2s linear;
+        }
+        
+        @keyframes burning {
+            0%{
+                /* width: 100%; */
+                transform: rotate(245deg) rotateY(0deg) translateX(130%);
+            }
+            100%{
+                width: 50%;
+                transform: rotate(245deg) rotateY(95deg) translateX(130%);
+            }
+         
+        }
+        
+        @keyframes burning2 {
+            0%{
+                /* width: 100%; */
+                transform: rotate(145deg) rotateY(0deg) translateX(100%) translateY(-5px);
+            }
+            100%{
+                width: 50%;
+                transform: rotate(145deg) rotateY(95deg) translateX(100%) translateY(-5px);
+            }
+         
+        }
+        
+        @keyframes burning3 {
+            0%{
+                /* width: 100%; */
+                transform: rotate(145deg) rotateY(0deg) translateX(-170%) translateY(-5px);
+            }
+            100%{
+                width: 50%;
+                transform: rotate(145deg) rotateY(95deg) translateX(-170%) translateY(-5px);
+            }
+         
+        }
+
+        #surprise{
+            display: none;
+            /* padding: 20px; */
+        }
+        #surprise img{
+            height: 30vw;
+            border-radius: 10px;
+        }
+        .show{
+            display: flex!important;
+        }
+        #surprise h1{
+            text-align: center;
+            margin:20px;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            section{
+                justify-content: space-evenly;
+            }
+            #container{
+                transform: rotateZ(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="whole">
+        <div id="container">
+
+            <div class="thread-cont">
+                <div class="cracker-thread"></div>
+            <div class="cracker-thread-top">
+
+                
+                <span class="sparkles"></span>
+                <span class="sparkles"></span>
+                <span class="sparkles"></span>
+                <span class="sparkles"></span>
+            </div>
+            </div>
+
+
+            <div class="cracker">
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+               <div class="bijili-cont">
+                <span class="bijili"></span>
+                <span class="bijili-thread"></span>
+               </div>
+            </div>
+
+            <div class="cracker-bottom">
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+                <div class="bijili-cont">
+                 <span class="bijili"></span>
+                 <span class="bijili-thread"></span>
+                </div>
+             </div>
+
+
+        </div>
+
+        <button onclick="crackIt()" class="btn">Tap to Burst</button>
+
+    </section>
+    
+    
+    <div id="surprise">
+        <img src="naani.jpg" />
+        <!-- <h1>Adhu Vedikaadhu.. Keezha Pottrunga !!</h1> -->
+        <h1>Omae Wa Mou Shinderu.. Naaniii !!</h1>
+        
+        <h1>Happy Diwali!! 🧨 </h1>
+    </div>
+    
+    <div id="footer">
+        <p>Developed By <a href="">Squaaadd</a></p>
+    </div>
+   
+
+    <script>
+
+        function crackIt(){
+                // console.log("Happy Diwali");
+
+                var container = document.getElementById("whole");
+                var surprise = document.getElementById("surprise");
+                var btn = document.getElementsByClassName("btn")[0];
+
+                btn.innerHTML = "Burning..."
+
+                var pattasu_thread = document.getElementsByClassName("cracker-thread")[0];
+                var pattasu_thread_top = document.getElementsByClassName("cracker-thread-top")[0];
+                var sparkles = document.getElementsByClassName("sparkles");
+
+                console.log(pattasu_thread);
+                pattasu_thread.classList.add("burn");
+                pattasu_thread_top.classList.add("burn");
+               
+                for(i=0;i<sparkles.length;i++){
+                    sparkles[i].classList.add("burn");
+                }
+
+                setTimeout(()=>{
+                    container.classList.add("hide");
+                    surprise.classList.add("show");
+                },10000)
+        }
+        </script>
+</body>
+</html>
